@@ -26,6 +26,7 @@ Plugin 'Shougo/neocomplete'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,7 +36,7 @@ filetype plugin indent on    " required
 " ===========================================================
 
 " Key Mappings
-imap ;; <Esc>
+imap jj <Esc>
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
@@ -89,10 +90,9 @@ let g:neocomplete#enable_at_startup = 1
 
 "NERDTree
 " ========
-let NERDTreeMapOpenInTab='\r'
-let g:nerdtree_tabs_open_on_console_startup=1
 
 "Syntastic"
+" ===========
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
@@ -100,6 +100,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jshint']
 
-"JS Syntax"
-""au FileType javascript call JavaScriptFold()
+inoremap <C-a> <Esc>
